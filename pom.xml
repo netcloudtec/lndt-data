@@ -14,6 +14,7 @@
         <module>lndt-realtime-deal</module>
         <module>hldrl-udp-data</module>
         <module>lndt-common</module>
+        <module>lndt-fuel-item-api</module>
     </modules>
 
 

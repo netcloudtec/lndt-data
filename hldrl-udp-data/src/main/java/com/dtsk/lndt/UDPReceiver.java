@@ -25,6 +25,7 @@ import java.util.*;
 
 public class UDPReceiver {
     public static void main(String[] args) {
+        System.out.println("程序开始执行");
             // Kafka 配置参数
             Properties props = new Properties();
             props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "10.217.6.104:9092");
@@ -82,9 +83,11 @@ public class UDPReceiver {
                         retMap.put("real_time", formattedDateTime);
                         retMap.put("status", status);
                         String result = JSONUtil.toJsonStr(retMap);
+                        System.out.println(result);
+
                         // 发送消息
-                        ProducerRecord<String, Object> record = new ProducerRecord<>("hldrl_udp_point_table", result);
-                        producer.send(record);
+//                        ProducerRecord<String, Object> record = new ProducerRecord<>("hldrl_udp_point_table", result);
+//                        producer.send(record);
                     }
                 }
             } catch (SocketException e) {
@@ -111,4 +114,4 @@ public class UDPReceiver {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             return sdf.format(date);
         }
-    }
+}
